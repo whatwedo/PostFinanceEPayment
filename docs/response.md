@@ -3,7 +3,7 @@
 you can either get a transaction feedback with GET variables when user is redirecting back to your page or you can
 choose a server-side method. for both, you can use this code snippet to get the result of the transaction:
 
-```
+```php
 <?php
 
 require(__DIR__ . "/../vendor/autoload.php");

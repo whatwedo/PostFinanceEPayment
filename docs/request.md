@@ -1,6 +1,6 @@
 # Create A Payment Request
 
-```
+```php
 <?php
 require(__DIR__ . "/../vendor/autoload.php");
 
@@ -56,4 +56,4 @@ echo $payment->getForm()->getHtml("my form fields...", "<input type=\"submit\" v
 ```
 
 * [back to index](index.md)
-* [transaction feedback](redirect.md)
+* [transaction feedback](response.md)
