@@ -1,0 +1,27 @@
+{
+    "name": "whatwedo/postfinance-e-payment",
+    "type": "library",
+    "description": "PHP 5 library for handling PostFinance E-Payments",
+    "license": "MIT",
+    "keywords": ["postfinance", "e-payment"],
+    "homepage": "https://github.com/whatwedo/postfinance-e-payment",
+    "authors": [
+        {
+            "name": "Ueli Banholzer",
+            "email": "ueli@whatwedo.ch",
+            "homepage": "https://whatwedo.ch"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "whatwedo\\PostFinanceEPayment": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.3"
+    }
+}

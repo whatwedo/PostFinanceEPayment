@@ -1,0 +1,6 @@
+# PHP specific stuff
+vendor/
+phpunit.xml
+
+# IDE's
+.idea
