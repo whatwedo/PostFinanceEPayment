@@ -1,6 +1,7 @@
 # PHP specific stuff
 vendor/
 phpunit.xml
+docs/api
 
 # IDE's
 .idea

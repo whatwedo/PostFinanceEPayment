@@ -18,4 +18,5 @@ composer require whatwedo/postfinance-e-payment
 
 ## Documentation
 
-see [/docs](docs/index.md)-folder for usage.
+* see [/docs](docs/index.md)-folder for usage.
+* see [docs.whatwedo.ch/PostFinanceEPayment/api](http://docs.whatwedo.ch/PostFinanceEPayment/api/) for API docs
