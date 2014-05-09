@@ -139,6 +139,20 @@ class Payment
     }
 
     /**
+     * returns an URL for a GET request to the payment process
+     * @return string
+     */
+    public function getUrl()
+    {
+        $this->finalizeParameters();
+
+        return sprintf("%s?%s",
+            $this->environment->getGatewayUrl(),
+            http_build_query($this->parameters->getAll())
+        );
+    }
+
+    /**
      * @return ParameterBag
      */
     public function getParameters()
