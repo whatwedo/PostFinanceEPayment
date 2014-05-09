@@ -71,4 +71,23 @@ final class PaymentStatus
         96  => "Refund reversed",
         99  => "Being processed",
     );
+
+    public static function isPartiallySuccess($code)
+    {
+        if ((
+                $code >= 50
+                && $code <= 59
+            ) || (
+                $code == 99
+                || $code == 91
+                || $code == 92
+                || $code == 9
+                || $code == 4
+                || $code == 40
+            )) {
+            return true;
+        }
+
+        return false;
+    }
 }
