@@ -44,7 +44,7 @@ class PostFinanceEPayment
      * @param OrderInterface $order
      * @return Payment
      */
-    public function createPayment(ClientInterface &$client, OrderInterface &$order)
+    public function createPayment(ClientInterface $client, OrderInterface $order)
     {
         return new Payment($client, $order, $this->environment);
     }
