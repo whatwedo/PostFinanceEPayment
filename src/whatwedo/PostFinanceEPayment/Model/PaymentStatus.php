@@ -72,6 +72,15 @@ final class PaymentStatus
         99  => "Being processed",
     );
 
+    public static function isSuccess($code)
+    {
+        if ($code == 5
+            || $code == 9) {
+            return true;
+        }
+        return false;
+    }
+
     public static function isPartiallySuccess($code)
     {
         if ((
@@ -81,7 +90,6 @@ final class PaymentStatus
                 $code == 99
                 || $code == 91
                 || $code == 92
-                || $code == 9
                 || $code == 4
                 || $code == 40
             )) {

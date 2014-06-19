@@ -396,7 +396,7 @@ class Response
      */
     public function hasError()
     {
-        if ($this->getStatus() === PaymentStatus::SUCCESS) {
+        if (PaymentStatus::isSuccess($this->getStatus())) {
             return false;
         }
         return true;
