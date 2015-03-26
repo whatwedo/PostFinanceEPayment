@@ -40,7 +40,7 @@ $client->setId(5)
     ->setCountry("CH")
     ->setTel("+41 99 999 99 99")
     ->setEmail("yippee-ki-yay-motherf_cker@nypd.us")
-    ->setLanguage("de_CH");
+    ->setLocale("de_CH");
 
 $order = new Order();
 $order->setId(10)
