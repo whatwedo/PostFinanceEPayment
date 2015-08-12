@@ -46,7 +46,7 @@ class PostFinanceEPayment
      * @param array           $additionalParameters
      * @return Payment
      */
-    public function createPayment(ClientInterface $client, OrderInterface $order, $additionalParameters = [])
+    public function createPayment(ClientInterface $client, OrderInterface $order, $additionalParameters = array())
     {
         $parameterBag = new ParameterBag($additionalParameters);
 
