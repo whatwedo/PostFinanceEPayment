@@ -46,12 +46,17 @@ class Payment
 
     /**
      * @param ClientInterface $client
-     * @param OrderInterface $order
-     * @param Environment $environment
+     * @param OrderInterface  $order
+     * @param ParameterBag    $parameterBag
+     * @param Environment     $environment
      */
-    public function __construct(ClientInterface &$client, OrderInterface &$order, Environment &$environment)
-    {
-        $this->parameters = new ParameterBag();
+    public function __construct(
+        ClientInterface &$client,
+        OrderInterface &$order,
+        ParameterBag $parameterBag,
+        Environment &$environment
+    ) {
+        $this->parameters = $parameterBag;
         $this->client = $client;
         $this->order = $order;
         $this->environment = $environment;

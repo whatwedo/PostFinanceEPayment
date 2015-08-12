@@ -11,6 +11,7 @@
 
 namespace whatwedo\PostFinanceEPayment;
 
+use whatwedo\PostFinanceEPayment\Bag\ParameterBag;
 use whatwedo\PostFinanceEPayment\Client\ClientInterface;
 use whatwedo\PostFinanceEPayment\Environment\Environment;
 use whatwedo\PostFinanceEPayment\Order\OrderInterface;
@@ -41,12 +42,15 @@ class PostFinanceEPayment
     /**
      * create a new payment request
      * @param ClientInterface $client
-     * @param OrderInterface $order
+     * @param OrderInterface  $order
+     * @param array           $additionalParameters
      * @return Payment
      */
-    public function createPayment(ClientInterface $client, OrderInterface $order)
+    public function createPayment(ClientInterface $client, OrderInterface $order, $additionalParameters = [])
     {
-        return new Payment($client, $order, $this->environment);
+        $parameterBag = new ParameterBag($additionalParameters);
+
+        return new Payment($client, $order, $parameterBag, $this->environment);
     }
 
     /**
