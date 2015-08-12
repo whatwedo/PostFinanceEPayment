@@ -59,7 +59,7 @@ echo $payment->getForm()->getHtml("my form fields...", "<input type=\"submit\" v
 
 optionally, you can pass more payment parameters to the `createPayment` method.
 
-```
+```php
 $payment = $ePayment->createPayment($client, $order, [
     // Adding ALIAS Parameter for recurring payments
     Parameter::ALIAS      => sprintf('RECURRING_%s_CLIENT_%s', $order->getId(), $client->getId()),
