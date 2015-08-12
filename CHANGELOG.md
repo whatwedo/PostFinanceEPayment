@@ -1,10 +1,10 @@
-# Release 0.1 Alpha
-**Date:** 2014/04/22
+# Change Log
+All notable changes to this project will be documented in this file.
+This project adheres to [Semantic Versioning](http://semver.org/).
 
-this is the initial release of the PostFinance E-Payment class. We're still testing it.
+## 0.1.0 Alpha 1
+### Added
+- handle payment request
+- parse PostFinance response
 
-## Release Notes
-
-- **New:** handle payment request
-- **New:** parse PostFinance response
-
+[unreleased]: https://github.com/whatwedo/PostFinanceEPayment/compare/master...develop
