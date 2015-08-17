@@ -146,6 +146,14 @@ abstract class Environment implements EnvironmentInterface
         self::HASH_SHA512,
     );
 
+    /**
+     * @var array allowed charsets
+     */
+    public static $ALLOWED_CHARSETS = array(
+        self::CHARSET_ISO_8859_1,
+        self::CHARSET_UTF_8,
+    );
+
     public function __construct($pspid, $shaIn, $shaOut)
     {
         $this->setPSPID($pspid);
@@ -217,6 +225,13 @@ abstract class Environment implements EnvironmentInterface
      */
     public function setCharset($charset)
     {
+        if (!in_array($charset, self::$ALLOWED_CHARSETS)) {
+            throw new InvalidArgumentException(sprintf(
+                "Invalid charset specified (%s), allowed: %s",
+                $charset,
+                implode(", ", self::ALLOWED_CHARSETS)
+            ));
+        }
         self::$CHARSET = $charset;
 
         return $this;
@@ -229,7 +244,7 @@ abstract class Environment implements EnvironmentInterface
      */
     public function getCharset()
     {
-        return $this->CHARSET;
+        return self::$CHARSET;
     }
 
     /**
