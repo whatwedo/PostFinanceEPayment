@@ -146,12 +146,11 @@ abstract class Environment implements EnvironmentInterface
         self::HASH_SHA512,
     );
 
-    public function __construct($pspid, $shaIn, $shaOut, $charset = self::CHARSET_ISO_8859_1)
+    public function __construct($pspid, $shaIn, $shaOut)
     {
         $this->setPSPID($pspid);
         $this->setShaIn($shaIn);
         $this->setShaOut($shaOut);
-        $this->setCharset($charset);
     }
 
     /**
