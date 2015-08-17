@@ -23,7 +23,13 @@ class ProductionEnvironment extends Environment
      */
     public static function getGatewayUrl()
     {
-        return self::BASE_URL . "/orderstandard.asp";
+        switch (self::$charset) {
+            case self::CHARSET_UTF_8:
+                return self::BASE_URL . "/orderstandard_utf8.asp";
+
+            default:
+                return self::BASE_URL . "/orderstandard.asp";
+        }
     }
 
     /**

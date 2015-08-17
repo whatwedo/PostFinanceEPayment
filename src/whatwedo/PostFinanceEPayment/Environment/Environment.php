@@ -23,6 +23,9 @@ abstract class Environment implements EnvironmentInterface
     const HASH_SHA256 = "sha256";
     const HASH_SHA512 = "sha512";
 
+    const CHARSET_ISO_8859_1 = "iso_8859-1";
+    const CHARSET_UTF_8 = "utf-8";
+
     /**
      * @var string|null
      */
@@ -42,6 +45,11 @@ abstract class Environment implements EnvironmentInterface
      * @var string|null
      */
     protected $shaOut = null;
+
+    /**
+     * @var string client charset
+     */
+    protected static $CHARSET = self::CHARSET_ISO_8859_1;
 
     /**
      * @var string|null
@@ -138,11 +146,12 @@ abstract class Environment implements EnvironmentInterface
         self::HASH_SHA512,
     );
 
-    public function __construct($pspid, $shaIn, $shaOut)
+    public function __construct($pspid, $shaIn, $shaOut, $charset = self::CHARSET_ISO_8859_1)
     {
         $this->setPSPID($pspid);
         $this->setShaIn($shaIn);
         $this->setShaOut($shaOut);
+        $this->setCharset($charset);
     }
 
     /**
@@ -200,6 +209,28 @@ abstract class Environment implements EnvironmentInterface
     public function getShaOut()
     {
         return $this->shaOut;
+    }
+
+    /**
+     * Set charset
+     *
+     * @param string $charset
+     */
+    public function setCharset($charset)
+    {
+        self::$CHARSET = $charset;
+
+        return $this;
+    }
+
+    /**
+     * Get charset
+     *
+     * @return string
+     */
+    public function getCharset()
+    {
+        return $this->CHARSET;
     }
 
     /**
