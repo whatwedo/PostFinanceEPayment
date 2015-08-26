@@ -23,7 +23,7 @@ class ProductionEnvironment extends Environment
      */
     public static function getGatewayUrl()
     {
-        switch (self::$charset) {
+        switch (self::$CHARSET) {
             case self::CHARSET_UTF_8:
                 return self::BASE_URL . "/orderstandard_utf8.asp";
 
