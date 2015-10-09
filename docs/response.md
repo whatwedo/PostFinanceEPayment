@@ -1,7 +1,7 @@
 # Transaction Feedback
 
-you can either get a transaction feedback with GET variables when user is redirecting back to your page or you can
-choose a server-side method. for both, you can use this code snippet to get the result of the transaction:
+You can either get a transaction feedback with GET variables when user is redirecting back to your page or you can
+choose a server-side method. For both, you can use this code snippet to get the result of the transaction:
 
 ```php
 <?php
@@ -19,6 +19,7 @@ $env = new TestEnvironment(
     "ABC" // SHA-OUT
 );
 $env->setHashAlgorithm(TestEnvironment::HASH_SHA512); // if you want to use another algorithm than sha-1
+$env->setCharset(TestEnvironment::CHARSET_UTF_8); // if your application uses UTF-8 rather than ISO 8859-1
 
 $ePayment = new PostFinanceEPayment($env);
 

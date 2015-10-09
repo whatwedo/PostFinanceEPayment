@@ -16,6 +16,7 @@ $env = new TestEnvironment(
 );
 
 $env->setHashAlgorithm(TestEnvironment::HASH_SHA512); // if you want to use another algorithm than sha-1
+$env->setCharset(TestEnvironment::CHARSET_UTF_8); // if your application uses UTF-8 rather than ISO 8859-1
 
 // if you want, you can set this in the backoffice
 $env->setAcceptUrl("https://www.example.com/checkout/postfinance/accept");
