@@ -451,7 +451,7 @@ class Response
     }
 
     /**
-     * @param string $transactionDate
+     * @param DateTime $transactionDate
      * @return Response
      */
     public function setTransactionDate($transactionDate)
@@ -462,7 +462,7 @@ class Response
     }
 
     /**
-     * @return string
+     * @return DateTime
      */
     public function getTransactionDate()
     {
