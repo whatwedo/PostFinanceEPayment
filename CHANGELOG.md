@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - all Parameters for alias-usage
 - allowing to pass an array of additional parameters to the `PostFinanceEPayment->createPayment` method
+- added gateway URL for UTF-8 data
 
 ## 0.1.0 Alpha 1
 ### Added
