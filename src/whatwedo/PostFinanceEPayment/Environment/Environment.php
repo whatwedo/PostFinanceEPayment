@@ -23,6 +23,9 @@ abstract class Environment implements EnvironmentInterface
     const HASH_SHA256 = "sha256";
     const HASH_SHA512 = "sha512";
 
+    const CHARSET_ISO_8859_1 = "iso_8859-1";
+    const CHARSET_UTF_8 = "utf-8";
+
     /**
      * @var string|null
      */
@@ -42,6 +45,11 @@ abstract class Environment implements EnvironmentInterface
      * @var string|null
      */
     protected $shaOut = null;
+
+    /**
+     * @var string client charset
+     */
+    protected static $CHARSET = self::CHARSET_ISO_8859_1;
 
     /**
      * @var string|null
@@ -138,11 +146,41 @@ abstract class Environment implements EnvironmentInterface
         self::HASH_SHA512,
     );
 
+    /**
+     * @var array allowed charsets
+     */
+    public static $ALLOWED_CHARSETS = array(
+        self::CHARSET_ISO_8859_1,
+        self::CHARSET_UTF_8,
+    );
+
     public function __construct($pspid, $shaIn, $shaOut)
     {
         $this->setPSPID($pspid);
         $this->setShaIn($shaIn);
         $this->setShaOut($shaOut);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function getGatewayUrl()
+    {
+        switch (static::$CHARSET) {
+            case static::CHARSET_UTF_8:
+                return static::BASE_URL . "/orderstandard_utf8.asp";
+
+            default:
+                return static::BASE_URL . "/orderstandard.asp";
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function getDirectLinkMaintenanceUrl()
+    {
+        return static::BASE_URL . "/maintenancedirect.asp";
     }
 
     /**
@@ -200,6 +238,35 @@ abstract class Environment implements EnvironmentInterface
     public function getShaOut()
     {
         return $this->shaOut;
+    }
+
+    /**
+     * Set charset
+     *
+     * @param string $charset
+     */
+    public function setCharset($charset)
+    {
+        if (!in_array($charset, self::$ALLOWED_CHARSETS)) {
+            throw new InvalidArgumentException(sprintf(
+                "Invalid charset specified (%s), allowed: %s",
+                $charset,
+                implode(", ", self::ALLOWED_CHARSETS)
+            ));
+        }
+        self::$CHARSET = $charset;
+
+        return $this;
+    }
+
+    /**
+     * Get charset
+     *
+     * @return string
+     */
+    public function getCharset()
+    {
+        return self::$CHARSET;
     }
 
     /**

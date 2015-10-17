@@ -72,8 +72,13 @@ final class Parameter
     const STATUS                    = "STATUS";
     const ECI                       = "ECI";
 
-    // Bank / Card
+    // Alias
     const ALIAS                     = "ALIAS";
+    const ALIASOPERATION            = "ALIASOPERATION";
+    const ALIASPERSISTEDAFTERUSE    = "ALIASPERSISTEDAFTERUSE";
+    const ALIASUSAGE                = "ALIASUSAGE";
+
+    // Bank / Card
     const BIC                       = "BIC";
     const CARD_BIN                  = "BIN";
     const CARD_BRAND                = "BRAND";
@@ -124,6 +129,9 @@ final class Parameter
         self::AAV_ZIP,
         self::ACCEPTANCE,
         self::ALIAS,
+        self::ALIASOPERATION,
+        self::ALIASPERSISTEDAFTERUSE,
+        self::ALIASUSAGE,
         self::AMOUNT,
         self::BIC,
         self::CARD_BIN,

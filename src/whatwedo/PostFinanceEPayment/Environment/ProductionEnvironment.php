@@ -17,20 +17,4 @@ namespace whatwedo\PostFinanceEPayment\Environment;
 class ProductionEnvironment extends Environment
 {
     const BASE_URL = "https://e-payment.postfinance.ch/ncol/prod";
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function getGatewayUrl()
-    {
-        return self::BASE_URL . "/orderstandard.asp";
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function getDirectLinkMaintenanceUrl()
-    {
-        return self::BASE_URL . "/maintenancedirect.asp";
-    }
 }

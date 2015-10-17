@@ -16,6 +16,7 @@ $env = new TestEnvironment(
 );
 
 $env->setHashAlgorithm(TestEnvironment::HASH_SHA512); // if you want to use another algorithm than sha-1
+$env->setCharset(TestEnvironment::CHARSET_UTF_8); // if your application uses UTF-8 rather than ISO 8859-1
 
 // if you want, you can set this in the backoffice
 $env->setAcceptUrl("https://www.example.com/checkout/postfinance/accept");
@@ -53,6 +54,18 @@ $payment = $ePayment->createPayment($client, $order);
 
 // or directly print the form
 echo $payment->getForm()->getHtml("my form fields...", "<input type=\"submit\" value=\"buy/pay!\">");
+```
+
+## Passing own parameters
+
+optionally, you can pass more payment parameters to the `createPayment` method.
+
+```php
+$payment = $ePayment->createPayment($client, $order, [
+    // Adding ALIAS Parameter for recurring payments
+    Parameter::ALIAS      => sprintf('RECURRING_%s_CLIENT_%s', $order->getId(), $client->getId()),
+    Parameter::ALIASUSAGE => 'Recurring Invoice for Domain example.com'
+]);
 ```
 
 * [back to index](index.md)

@@ -99,6 +99,11 @@ class Response
     protected $cardHolderName;
 
     /**
+     * @var string
+     */
+    protected $alias;
+
+    /**
      * @param $parameters
      * @param Environment $environment
      * @param bool $skipSignature skip signature check true / false
@@ -153,6 +158,11 @@ class Response
             ->setTransactionDate(\DateTime::createFromFormat("m/d/Y", $parameters[Parameter::TRANSACTION_DATE]))
             ->setCardHolderName($parameters[Parameter::CARD_HOLDER])
             ->setIp($parameters[Parameter::IP]);
+
+        if (isset($parameters[Parameter::ALIAS])
+            && !empty($parameters[Parameter::ALIAS])) {
+            $response->setAlias($parameters[Parameter::ALIAS]);
+        }
 
         switch($parameters['PM']) {
             case "CreditCard":
@@ -476,5 +486,24 @@ class Response
     public function getCardHolderName()
     {
         return $this->cardHolderName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAlias()
+    {
+        return $this->alias;
+    }
+
+    /**
+     * @param string $alias
+     * @return Response
+     */
+    public function setAlias($alias)
+    {
+        $this->alias = $alias;
+
+        return $this;
     }
 }
