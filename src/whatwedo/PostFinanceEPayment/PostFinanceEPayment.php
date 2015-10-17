@@ -27,7 +27,7 @@ class PostFinanceEPayment
     const POSTFINANCE_VERSION = 04.101;
 
     /**
-     * @var null|Environment
+     * @var Environment
      */
     protected $environment = null;
 
