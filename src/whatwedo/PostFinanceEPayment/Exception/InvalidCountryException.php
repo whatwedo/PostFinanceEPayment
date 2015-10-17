@@ -11,8 +11,6 @@
 
 namespace whatwedo\PostFinanceEPayment\Exception;
 
-use InvalidArgumentException;
-
 /**
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */

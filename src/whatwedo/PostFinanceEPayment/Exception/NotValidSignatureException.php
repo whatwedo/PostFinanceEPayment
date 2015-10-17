@@ -13,11 +13,10 @@ namespace whatwedo\PostFinanceEPayment\Exception;
 
 use Exception;
 
-
 /**
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
-class NotValidSignatureException extends \Exception
+class NotValidSignatureException extends Exception
 {
     public function __construct($message = "", $code = 0, Exception $previous = null)
     {

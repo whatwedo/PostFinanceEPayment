@@ -11,7 +11,6 @@
 
 namespace whatwedo\PostFinanceEPayment\Exception;
 
-use InvalidArgumentException;
 use whatwedo\PostFinanceEPayment\Environment\Environment;
 
 /**

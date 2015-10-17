@@ -11,7 +11,7 @@
 
 namespace whatwedo\PostFinanceEPayment\Exception;
 
-use InvalidArgumentException as BaseInvalidArgumentException;
+use \InvalidArgumentException as BaseInvalidArgumentException;
 
 /**
  * @author Ueli Banholzer <ueli@whatwedo.ch>
