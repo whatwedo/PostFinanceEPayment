@@ -162,6 +162,28 @@ abstract class Environment implements EnvironmentInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public static function getGatewayUrl()
+    {
+        switch (self::$CHARSET) {
+            case self::CHARSET_UTF_8:
+                return self::BASE_URL . "/orderstandard_utf8.asp";
+
+            default:
+                return self::BASE_URL . "/orderstandard.asp";
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function getDirectLinkMaintenanceUrl()
+    {
+        return self::BASE_URL . "/maintenancedirect.asp";
+    }
+
+    /**
      * @param string $pspid
      * @return Environment
      */

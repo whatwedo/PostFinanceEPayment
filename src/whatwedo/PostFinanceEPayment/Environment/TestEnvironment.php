@@ -17,26 +17,4 @@ namespace whatwedo\PostFinanceEPayment\Environment;
 class TestEnvironment extends Environment
 {
     const BASE_URL = "https://e-payment.postfinance.ch/ncol/test";
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function getGatewayUrl()
-    {
-        switch (self::$CHARSET) {
-            case self::CHARSET_UTF_8:
-                return self::BASE_URL . "/orderstandard_utf8.asp";
-
-            default:
-                return self::BASE_URL . "/orderstandard.asp";
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function getDirectLinkMaintenanceUrl()
-    {
-        return self::BASE_URL . "/maintenancedirect.asp";
-    }
 }
