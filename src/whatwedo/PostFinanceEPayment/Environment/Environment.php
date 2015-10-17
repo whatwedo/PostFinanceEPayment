@@ -166,12 +166,12 @@ abstract class Environment implements EnvironmentInterface
      */
     public static function getGatewayUrl()
     {
-        switch (self::$CHARSET) {
-            case self::CHARSET_UTF_8:
-                return self::BASE_URL . "/orderstandard_utf8.asp";
+        switch (static::$CHARSET) {
+            case static::CHARSET_UTF_8:
+                return static::BASE_URL . "/orderstandard_utf8.asp";
 
             default:
-                return self::BASE_URL . "/orderstandard.asp";
+                return static::BASE_URL . "/orderstandard.asp";
         }
     }
 
@@ -180,7 +180,7 @@ abstract class Environment implements EnvironmentInterface
      */
     public static function getDirectLinkMaintenanceUrl()
     {
-        return self::BASE_URL . "/maintenancedirect.asp";
+        return static::BASE_URL . "/maintenancedirect.asp";
     }
 
     /**
