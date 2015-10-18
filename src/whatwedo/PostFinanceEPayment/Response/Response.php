@@ -21,9 +21,9 @@ use whatwedo\PostFinanceEPayment\Environment\Environment;
 use whatwedo\PostFinanceEPayment\Exception\InvalidArgumentException;
 use whatwedo\PostFinanceEPayment\Exception\NotValidSignatureException;
 
-
 /**
- * handles the PostFinance response
+ * handles the PostFinance response.
+ *
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
 class Response
@@ -54,7 +54,7 @@ class Response
     protected $acceptance;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $status;
 
@@ -106,14 +106,16 @@ class Response
     /**
      * @param $parameters
      * @param Environment $environment
-     * @param bool $skipSignature skip signature check true / false
+     * @param bool        $skipSignature skip signature check true / false
+     *
      * @return Response
+     *
      * @throws InvalidArgumentException
      * @throws NotValidSignatureException
      */
     public static function create($parameters, Environment $environment, $skipSignature = false)
     {
-        $response = new Response();
+        $response = new self();
 
         $parameters = array_change_key_case($parameters, CASE_UPPER);
 
@@ -121,24 +123,23 @@ class Response
 
         if (count($missing) > 0) {
             throw new InvalidArgumentException(sprintf(
-                "Missing parameter(s) %s of PostFinance post-sale response",
-                implode(", ", $missing)
+                'Missing parameter(s) %s of PostFinance post-sale response',
+                implode(', ', $missing)
             ));
         }
 
         if (!$skipSignature) {
-            $string = "";
+            $string = '';
             $p = Parameter::$postSaleParameters;
             sort($p);
-            foreach($p as $key)
-            {
+            foreach ($p as $key) {
                 if ($key === Parameter::SIGNATURE
                     || !isset($parameters[$key])
-                    || $parameters[$key] === "") {
+                    || $parameters[$key] === '') {
                     continue;
                 }
 
-                $string .= sprintf("%s=%s%s", $key, $parameters[$key], $environment->getShaOut());
+                $string .= sprintf('%s=%s%s', $key, $parameters[$key], $environment->getShaOut());
             }
 
             if (strtoupper(hash($environment->getHashAlgorithm(), $string)) !== $parameters[Parameter::SIGNATURE]) {
@@ -155,7 +156,7 @@ class Response
             ->setPaymentId($parameters[Parameter::PAYMENT_ID])
             ->setError($parameters[Parameter::NC_ERROR])
             ->setCardExpirationDate($parameters[Parameter::EXPIRATION_DATE])
-            ->setTransactionDate(\DateTime::createFromFormat("m/d/Y", $parameters[Parameter::TRANSACTION_DATE]))
+            ->setTransactionDate(\DateTime::createFromFormat('m/d/Y', $parameters[Parameter::TRANSACTION_DATE]))
             ->setCardHolderName($parameters[Parameter::CARD_HOLDER])
             ->setIp($parameters[Parameter::IP]);
 
@@ -164,23 +165,23 @@ class Response
             $response->setAlias($parameters[Parameter::ALIAS]);
         }
 
-        switch($parameters['PM']) {
-            case "CreditCard":
+        switch ($parameters['PM']) {
+            case 'CreditCard':
                 $response->setPaymentMethod(PaymentMethod::CREDITCARD);
-                switch($parameters['BRAND']) {
-                    case "MasterCard":
+                switch ($parameters['BRAND']) {
+                    case 'MasterCard':
                         $response->setBrand(Brand::MASTERCARD);
                         break;
-                    case "Visa":
+                    case 'Visa':
                         $response->setBrand(Brand::VISA);
                         break;
                 }
                 break;
-            case "PostFinance e-finance":
+            case 'PostFinance e-finance':
                 $response->setPaymentMethod(PaymentMethod::POSTFINANCE_EFINANCE);
                 $response->setBrand(Brand::POSTFINANCE_EFINANCE);
                 break;
-            case "PostFinance Card":
+            case 'PostFinance Card':
                 $response->setPaymentMethod(PaymentMethod::POSTFINANCE_CARD);
                 $response->setBrand(Brand::POSTFINANCE_CARD);
                 break;
@@ -192,6 +193,7 @@ class Response
 
     /**
      * @param string $orderId
+     *
      * @return Response
      */
     public function setOrderId($orderId)
@@ -211,6 +213,7 @@ class Response
 
     /**
      * @param float $amount
+     *
      * @return Response
      */
     public function setAmount($amount)
@@ -230,6 +233,7 @@ class Response
 
     /**
      * @param string $currency
+     *
      * @return Response
      */
     public function setCurrency($currency)
@@ -249,6 +253,7 @@ class Response
 
     /**
      * @param string $paymentMethod
+     *
      * @return Response
      */
     public function setPaymentMethod($paymentMethod)
@@ -268,6 +273,7 @@ class Response
 
     /**
      * @param string $acceptance
+     *
      * @return Response
      */
     public function setAcceptance($acceptance)
@@ -286,7 +292,8 @@ class Response
     }
 
     /**
-     * @param integer $status
+     * @param int $status
+     *
      * @return Response
      */
     public function setStatus($status)
@@ -297,7 +304,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getStatus()
     {
@@ -306,6 +313,7 @@ class Response
 
     /**
      * @param string $cardNumber
+     *
      * @return Response
      */
     public function setCardNumber($cardNumber)
@@ -325,6 +333,7 @@ class Response
 
     /**
      * @param string $cardExpirationDate
+     *
      * @return Response
      */
     public function setCardExpirationDate($cardExpirationDate)
@@ -344,6 +353,7 @@ class Response
 
     /**
      * @param string $paymentId
+     *
      * @return Response
      */
     public function setPaymentId($paymentId)
@@ -363,6 +373,7 @@ class Response
 
     /**
      * @param string $error
+     *
      * @return Response
      */
     public function setError($error)
@@ -379,18 +390,19 @@ class Response
     {
         if (!empty($this->error)) {
             if (isset(ErrorCode::$codes[$this->error])) {
-                return sprintf("%s (%s)", ErrorCode::$codes[$this->error], $this->error);
+                return sprintf('%s (%s)', ErrorCode::$codes[$this->error], $this->error);
             } else {
                 return $this->error;
             }
         } elseif (!empty($this->status)) {
             if (isset(PaymentStatus::$codes[$this->status])) {
-                return sprintf("%s (%s)", PaymentStatus::$codes[$this->status], $this->status);
+                return sprintf('%s (%s)', PaymentStatus::$codes[$this->status], $this->status);
             } else {
                 return $this->status;
             }
         }
-        return null;
+
+        return;
     }
 
     /**
@@ -409,11 +421,13 @@ class Response
         if (PaymentStatus::isSuccess($this->getStatus())) {
             return false;
         }
+
         return true;
     }
 
     /**
      * @param string $ip
+     *
      * @return Response
      */
     public function setIp($ip)
@@ -433,6 +447,7 @@ class Response
 
     /**
      * @param string $brand
+     *
      * @return Response
      */
     public function setBrand($brand)
@@ -452,6 +467,7 @@ class Response
 
     /**
      * @param DateTime $transactionDate
+     *
      * @return Response
      */
     public function setTransactionDate($transactionDate)
@@ -471,6 +487,7 @@ class Response
 
     /**
      * @param string $cardHolderName
+     *
      * @return Response
      */
     public function setCardHolderName($cardHolderName)
@@ -498,6 +515,7 @@ class Response
 
     /**
      * @param string $alias
+     *
      * @return Response
      */
     public function setAlias($alias)

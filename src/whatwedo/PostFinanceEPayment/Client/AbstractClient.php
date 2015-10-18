@@ -15,7 +15,8 @@ use whatwedo\PostFinanceEPayment\Exception\InvalidArgumentException;
 use whatwedo\PostFinanceEPayment\Exception\InvalidCountryException;
 
 /**
- * implementation of ClientInterface to store all client information
+ * implementation of ClientInterface to store all client information.
+ *
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
 abstract class AbstractClient implements ClientInterface
@@ -60,10 +61,11 @@ abstract class AbstractClient implements ClientInterface
     /**
      * @var string Locale of the user: ISO 639-1 (lowercase) underscore ISO 3166-1 (uppercase), ex. de_CH
      */
-    protected $locale = "en_US";
+    protected $locale = 'en_US';
 
     /**
      * @param string $id
+     *
      * @return AbstractClient
      */
     public function setId($id)
@@ -83,6 +85,7 @@ abstract class AbstractClient implements ClientInterface
 
     /**
      * @param string $name
+     *
      * @return AbstractClient
      */
     public function setName($name)
@@ -102,13 +105,15 @@ abstract class AbstractClient implements ClientInterface
 
     /**
      * @param $email
+     *
      * @return $this
+     *
      * @throws InvalidArgumentException
      */
     public function setEmail($email)
     {
         if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new InvalidArgumentException("Invalid e-mail address specified");
+            throw new InvalidArgumentException('Invalid e-mail address specified');
         }
 
         $this->email = strtolower($email);
@@ -126,6 +131,7 @@ abstract class AbstractClient implements ClientInterface
 
     /**
      * @param string $address
+     *
      * @return AbstractClient
      */
     public function setAddress($address)
@@ -145,6 +151,7 @@ abstract class AbstractClient implements ClientInterface
 
     /**
      * @param string $town
+     *
      * @return AbstractClient
      */
     public function setTown($town)
@@ -164,6 +171,7 @@ abstract class AbstractClient implements ClientInterface
 
     /**
      * @param string $tel
+     *
      * @return AbstractClient
      */
     public function setTel($tel)
@@ -183,7 +191,9 @@ abstract class AbstractClient implements ClientInterface
 
     /**
      * @param $country
+     *
      * @return $this
+     *
      * @throws InvalidCountryException
      */
     public function setCountry($country)
@@ -207,14 +217,16 @@ abstract class AbstractClient implements ClientInterface
 
     /**
      * @param $locale
+     *
      * @return $this
+     *
      * @throws \whatwedo\PostFinanceEPayment\Exception\InvalidArgumentException
      */
     public function setLocale($locale)
     {
         if (!preg_match(self::REGEXP_LANGUAGE, $locale)) {
             throw new InvalidArgumentException(sprintf(
-                "Invalid language given (%s) - language code must match %s",
+                'Invalid language given (%s) - language code must match %s',
                 $locale,
                 self::REGEXP_LANGUAGE
             ));

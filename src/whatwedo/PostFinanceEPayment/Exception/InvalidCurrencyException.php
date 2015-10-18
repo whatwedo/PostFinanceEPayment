@@ -28,9 +28,9 @@ class InvalidCurrencyException extends InvalidArgumentException
         }
 
         parent::__construct(sprintf(
-                "Invalid currency given (%s), allowed: %s",
+                'Invalid currency given (%s), allowed: %s',
                 $inputCurrency,
-                implode(", ", $allowedCurrencies)
+                implode(', ', $allowedCurrencies)
             ));
     }
-} 
+}

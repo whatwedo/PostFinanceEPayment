@@ -16,8 +16,8 @@ namespace whatwedo\PostFinanceEPayment\Form;
  */
 final class Form
 {
-    const METHOD_POST   = "post";
-    const METHOD_GET    = "get";
+    const METHOD_POST = 'post';
+    const METHOD_GET = 'get';
 
     /**
      * @var string
@@ -36,6 +36,7 @@ final class Form
 
     /**
      * @param string $method
+     *
      * @return Form
      */
     public function setMethod($method)
@@ -55,6 +56,7 @@ final class Form
 
     /**
      * @param string $action
+     *
      * @return Form
      */
     public function setAction($action)
@@ -74,6 +76,7 @@ final class Form
 
     /**
      * @param array $hiddenFields
+     *
      * @return Form
      */
     public function setHiddenFields($hiddenFields)
@@ -94,7 +97,7 @@ final class Form
     /**
      * @return string
      */
-    public function getHtml($inner = "", $submit = null)
+    public function getHtml($inner = '', $submit = null)
     {
         $result = array(
             sprintf('<form action="%s" method="%s">', $this->getAction(), $this->getMethod()),
@@ -102,7 +105,7 @@ final class Form
             $submit === null ? '<input type="submit">' : $submit,
         );
 
-        foreach($this->getHiddenFields() as $key => $value) {
+        foreach ($this->getHiddenFields() as $key => $value) {
             $result[] = sprintf('<input type="hidden" name="%s" value="%s">', $key, $value);
         }
         $result[] = '</form>';

@@ -12,19 +12,20 @@
 namespace whatwedo\PostFinanceEPayment\Model;
 
 /**
- * Payment method brands
+ * Payment method brands.
+ *
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
-class Brand 
+class Brand
 {
     // credit cards
-    const VISA = "Visa";
-    const MASTERCARD = "MasterCard";
+    const VISA = 'Visa';
+    const MASTERCARD = 'MasterCard';
 
     // post finance
-    const POSTFINANCE_EFINANCE = "PostFinance e-finance";
-    const POSTFINANCE_CARD = "PostFinance Card";
+    const POSTFINANCE_EFINANCE = 'PostFinance e-finance';
+    const POSTFINANCE_CARD = 'PostFinance Card';
 
     // others (or not yet implemented)
-    const UNKNOWN = "Unknown";
-} 
+    const UNKNOWN = 'Unknown';
+}

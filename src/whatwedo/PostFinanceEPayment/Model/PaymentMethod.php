@@ -12,13 +12,14 @@
 namespace whatwedo\PostFinanceEPayment\Model;
 
 /**
- * Payment methods
+ * Payment methods.
+ *
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
-class PaymentMethod 
+class PaymentMethod
 {
-    const CREDITCARD = "CreditCard";
-    const POSTFINANCE_EFINANCE = "PostFinance e-finance";
-    const POSTFINANCE_CARD = "PostFinance Card";
-    const UNKNOWN = "Unknown";
-} 
+    const CREDITCARD = 'CreditCard';
+    const POSTFINANCE_EFINANCE = 'PostFinance e-finance';
+    const POSTFINANCE_CARD = 'PostFinance Card';
+    const UNKNOWN = 'Unknown';
+}

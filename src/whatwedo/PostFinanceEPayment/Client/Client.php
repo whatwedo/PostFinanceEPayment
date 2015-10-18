@@ -14,4 +14,6 @@ namespace whatwedo\PostFinanceEPayment\Client;
 /**
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
-class Client extends AbstractClient { }
+class Client extends AbstractClient
+{
+}

@@ -19,10 +19,11 @@ use whatwedo\PostFinanceEPayment\Order\OrderInterface;
 use whatwedo\PostFinanceEPayment\Model\Parameter;
 
 /**
- * creates a payment request
+ * creates a payment request.
+ *
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
-class Payment 
+class Payment
 {
     /**
      * @var ParameterBag Payment parameters
@@ -99,17 +100,18 @@ class Payment
     }
 
     /**
-     * adds sha signature to the parameters
+     * adds sha signature to the parameters.
+     *
      * @return $this
      */
     protected function addSignature()
     {
         $parameters = $this->parameters->getAll();
         ksort($parameters);
-        $string = "";
+        $string = '';
 
-        foreach($parameters as $key => $value) {
-            $string .= sprintf("%s=%s%s", $key, $value, $this->environment->getShaIn());
+        foreach ($parameters as $key => $value) {
+            $string .= sprintf('%s=%s%s', $key, $value, $this->environment->getShaIn());
         }
 
         $this->parameters->add(Parameter::SIGNATURE, strtoupper(hash($this->environment->getHashAlgorithm(), $string)));
@@ -118,7 +120,8 @@ class Payment
     }
 
     /**
-     * finalizes the parameters
+     * finalizes the parameters.
+     *
      * @return $this
      */
     private function finalizeParameters()
@@ -129,7 +132,8 @@ class Payment
     }
 
     /**
-     * gets all form data for the checkout process
+     * gets all form data for the checkout process.
+     *
      * @return Form
      */
     public function getForm()
@@ -140,18 +144,20 @@ class Payment
         $form->setAction($this->environment->getGatewayUrl());
         $form->setMethod(Form::METHOD_POST);
         $form->setHiddenFields($this->parameters->getAll());
+
         return $form;
     }
 
     /**
-     * returns an URL for a GET request to the payment process
+     * returns an URL for a GET request to the payment process.
+     *
      * @return string
      */
     public function getUrl()
     {
         $this->finalizeParameters();
 
-        return sprintf("%s?%s",
+        return sprintf('%s?%s',
             $this->environment->getGatewayUrl(),
             http_build_query($this->parameters->getAll())
         );

@@ -18,12 +18,11 @@ use Exception;
  */
 class NotValidSignatureException extends Exception
 {
-    public function __construct($message = "", $code = 0, Exception $previous = null)
+    public function __construct($message = '', $code = 0, Exception $previous = null)
     {
         if (empty($message)) {
-            $message = "PostFinance signature does not match";
+            $message = 'PostFinance signature does not match';
         }
         parent::__construct($message, $code, $previous);
     }
-
-} 
+}

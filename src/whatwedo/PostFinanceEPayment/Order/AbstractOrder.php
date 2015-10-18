@@ -15,7 +15,8 @@ use whatwedo\PostFinanceEPayment\Environment\Environment;
 use whatwedo\PostFinanceEPayment\Exception\InvalidCurrencyException;
 
 /**
- * implementation of OrderInterface
+ * implementation of OrderInterface.
+ *
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
 abstract class AbstractOrder implements OrderInterface
@@ -33,7 +34,7 @@ abstract class AbstractOrder implements OrderInterface
     /**
      * @var string currency
      */
-    protected $currency = "CHF";
+    protected $currency = 'CHF';
 
     /**
      * @var string short order description (f.ex «three telephone numbers»)
@@ -42,6 +43,7 @@ abstract class AbstractOrder implements OrderInterface
 
     /**
      * @param string $id
+     *
      * @return AbstractOrder
      */
     public function setId($id)
@@ -61,6 +63,7 @@ abstract class AbstractOrder implements OrderInterface
 
     /**
      * @param float $amount
+     *
      * @return AbstractOrder
      */
     public function setAmount($amount)
@@ -88,7 +91,9 @@ abstract class AbstractOrder implements OrderInterface
 
     /**
      * @param string $currency
+     *
      * @throws InvalidCurrencyException
+     *
      * @return AbstractOrder
      */
     public function setCurrency($currency)
@@ -114,6 +119,7 @@ abstract class AbstractOrder implements OrderInterface
 
     /**
      * @param string $orderText
+     *
      * @return AbstractOrder
      */
     public function setOrderText($orderText)
