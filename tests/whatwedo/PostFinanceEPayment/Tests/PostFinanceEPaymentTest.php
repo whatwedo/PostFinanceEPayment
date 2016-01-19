@@ -115,7 +115,7 @@ class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
                 'ACCEPTANCE' => 'test123',
                 'STATUS' => $status,
                 'CARDNO' => 'XXXXXXXXXXXX'. $this->faker->randomNumber('####'),
-                'ED' => $this->faker->randomNumber(10,12) . $this->faker->randomNumber(10,99),
+                'ED' => $this->faker->numberBetween(10,12) . $this->faker->numberBetween(10,99),
                 'CN' => $this->faker->name,
                 'TRXDATE' => $this->faker->date('m/d/Y'),
                 'PAYID' => $this->faker->randomNumber('########'),

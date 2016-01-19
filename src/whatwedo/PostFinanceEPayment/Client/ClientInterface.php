@@ -12,7 +12,8 @@
 namespace whatwedo\PostFinanceEPayment\Client;
 
 /**
- * contains all necessary things of a client
+ * contains all necessary things of a client.
+ *
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
 interface ClientInterface
@@ -56,4 +57,4 @@ interface ClientInterface
      * @return string
      */
     public function getLocale();
-} 
+}

@@ -16,5 +16,5 @@ namespace whatwedo\PostFinanceEPayment\Environment;
  */
 class TestEnvironment extends Environment
 {
-    const BASE_URL = "https://e-payment.postfinance.ch/ncol/test";
+    const BASE_URL = 'https://e-payment.postfinance.ch/ncol/test';
 }

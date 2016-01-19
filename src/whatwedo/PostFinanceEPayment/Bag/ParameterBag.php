@@ -12,7 +12,8 @@
 namespace whatwedo\PostFinanceEPayment\Bag;
 
 /**
- * bag to easily manage the parameters
+ * bag to easily manage the parameters.
+ *
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
 class ParameterBag implements \Countable, \IteratorAggregate
@@ -31,7 +32,8 @@ class ParameterBag implements \Countable, \IteratorAggregate
     }
 
     /**
-     * @param string|integer|float $key
+     * @param string|int|float $key
+     *
      * @return bool
      */
     public function has($key)
@@ -40,9 +42,10 @@ class ParameterBag implements \Countable, \IteratorAggregate
     }
 
     /**
-     * @param string|integer|float $key
-     * @param mixed $value
-     * @param bool $addEmpty add empty value parameters?
+     * @param string|int|float $key
+     * @param mixed            $value
+     * @param bool             $addEmpty add empty value parameters?
+     *
      * @return $this
      */
     public function add($key, $value, $addEmpty = false)
@@ -58,7 +61,8 @@ class ParameterBag implements \Countable, \IteratorAggregate
     }
 
     /**
-     * @param string|integer|float $key
+     * @param string|int|float $key
+     *
      * @return mixed|null
      */
     public function get($key)
@@ -67,7 +71,7 @@ class ParameterBag implements \Countable, \IteratorAggregate
             return $this->parameters[$key];
         }
 
-        return null;
+        return;
     }
 
     /**
@@ -79,7 +83,8 @@ class ParameterBag implements \Countable, \IteratorAggregate
     }
 
     /**
-     * @param string|integer|float $key
+     * @param string|int|float $key
+     *
      * @return $this
      */
     public function remove($key)
@@ -93,6 +98,7 @@ class ParameterBag implements \Countable, \IteratorAggregate
 
     /**
      * @param mixed $value
+     *
      * @return mixed
      */
     public function contains($value)
@@ -113,6 +119,6 @@ class ParameterBag implements \Countable, \IteratorAggregate
      */
     public function count()
     {
-        return count ($this->parameters);
+        return count($this->parameters);
     }
 }

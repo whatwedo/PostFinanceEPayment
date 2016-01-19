@@ -19,15 +19,16 @@ use whatwedo\PostFinanceEPayment\Payment\Payment;
 use whatwedo\PostFinanceEPayment\Response\Response;
 
 /**
- * PostFinance E-Payment PHP library
+ * PostFinance E-Payment PHP library.
+ *
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
-class PostFinanceEPayment 
+class PostFinanceEPayment
 {
     const POSTFINANCE_VERSION = 04.101;
 
     /**
-     * @var null|Environment
+     * @var Environment
      */
     protected $environment = null;
 
@@ -40,10 +41,12 @@ class PostFinanceEPayment
     }
 
     /**
-     * create a new payment request
+     * create a new payment request.
+     *
      * @param ClientInterface $client
      * @param OrderInterface  $order
      * @param array           $additionalParameters
+     *
      * @return Payment
      */
     public function createPayment(ClientInterface $client, OrderInterface $order, $additionalParameters = array())
@@ -54,9 +57,11 @@ class PostFinanceEPayment
     }
 
     /**
-     * parses PostFinance response
+     * parses PostFinance response.
+     *
      * @param array|null $parameters
-     * @param bool $skipSignature skip signature check?
+     * @param bool       $skipSignature skip signature check?
+     *
      * @return Response
      */
     public function getResponse($parameters = null, $skipSignature = false)

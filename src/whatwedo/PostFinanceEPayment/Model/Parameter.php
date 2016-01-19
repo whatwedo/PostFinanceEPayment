@@ -12,110 +12,111 @@
 namespace whatwedo\PostFinanceEPayment\Model;
 
 /**
- * PostFinance parameters (most used parameters)
+ * PostFinance parameters (most used parameters).
+ *
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
 final class Parameter
 {
     // PostFinance configuration
-    const PSPID                     = "PSPID";
-    const SIGNATURE                 = "SHASIGN";
-    const SIGNATURE_DATE            = "SIGNDATE";
-    const MANDATE_ID                = "MANDATEID";
+    const PSPID = 'PSPID';
+    const SIGNATURE = 'SHASIGN';
+    const SIGNATURE_DATE = 'SIGNDATE';
+    const MANDATE_ID = 'MANDATEID';
 
     // Money
-    const AMOUNT                    = "AMOUNT";
-    const CURRENCY                  = "CURRENCY";
+    const AMOUNT = 'AMOUNT';
+    const CURRENCY = 'CURRENCY';
 
     // Order
-    const ORDER_ID                  = "ORDERID";
-    const ORDER_TEXT                = "COM";
-    const COMPLUS                   = "COMPLUS";
-    const PARAMPLUS                 = "PARAMPLUS";
+    const ORDER_ID = 'ORDERID';
+    const ORDER_TEXT = 'COM';
+    const COMPLUS = 'COMPLUS';
+    const PARAMPLUS = 'PARAMPLUS';
 
     // Client
-    const LANGUAGE                  = "LANGUAGE";
-    const CLIENT_ID                 = "USERID";
-    const CLIENT_NAME               = "CN";
-    const CLIENT_EMAIL              = "EMAIL";
-    const CLIENT_ADDRESS            = "OWNERADDRESS";
-    const CLIENT_TOWN               = "OWNERTOWN";
-    const CLIENT_COUNTRY            = "OWNERCTY";
-    const CLIENT_TEL                = "OWNERTELNO";
-    const IP_COUNTRY                = "IPCTY";
-    const IP                        = "IP";
+    const LANGUAGE = 'LANGUAGE';
+    const CLIENT_ID = 'USERID';
+    const CLIENT_NAME = 'CN';
+    const CLIENT_EMAIL = 'EMAIL';
+    const CLIENT_ADDRESS = 'OWNERADDRESS';
+    const CLIENT_TOWN = 'OWNERTOWN';
+    const CLIENT_COUNTRY = 'OWNERCTY';
+    const CLIENT_TEL = 'OWNERTELNO';
+    const IP_COUNTRY = 'IPCTY';
+    const IP = 'IP';
 
     // URL's
-    const HOME_URL                  = "HOMEURL";
-    const CATALOG_URL               = "CATALOGURL";
-    const ACCEPT_URL                = "ACCEPTURL";
-    const DECLINE_URL               = "DECLINEURL";
-    const EXCEPTION_URL             = "EXCEPTIONURL";
-    const CANCEL_URL                = "CANCELURL";
+    const HOME_URL = 'HOMEURL';
+    const CATALOG_URL = 'CATALOGURL';
+    const ACCEPT_URL = 'ACCEPTURL';
+    const DECLINE_URL = 'DECLINEURL';
+    const EXCEPTION_URL = 'EXCEPTIONURL';
+    const CANCEL_URL = 'CANCELURL';
 
     // Design
-    const TEMPLATE_URL              = "TP";
+    const TEMPLATE_URL = 'TP';
 
     // Adress
-    const AAV_CHECK                 = "AAVCHECK";
-    const AAV_ADDRESS               = "AAVADDRESS";
-    const AAV_NAME                  = "AAVNAME";
-    const AAV_ZIP                   = "AAVZIP";
-    const AAV_MAIL                  = "AAVMAIL";
-    const AAV_PHONE                 = "AAVPHONE";
+    const AAV_CHECK = 'AAVCHECK';
+    const AAV_ADDRESS = 'AAVADDRESS';
+    const AAV_NAME = 'AAVNAME';
+    const AAV_ZIP = 'AAVZIP';
+    const AAV_MAIL = 'AAVMAIL';
+    const AAV_PHONE = 'AAVPHONE';
 
     // Status
-    const ACCEPTANCE                = "ACCEPTANCE";
-    const NC_ERROR                  = "NCERROR";
-    const NC_ERROR_PLUS             = "NCERRORPLUS";
-    const NC_STATUS                 = "NCSTATUS";
-    const STATUS                    = "STATUS";
-    const ECI                       = "ECI";
+    const ACCEPTANCE = 'ACCEPTANCE';
+    const NC_ERROR = 'NCERROR';
+    const NC_ERROR_PLUS = 'NCERRORPLUS';
+    const NC_STATUS = 'NCSTATUS';
+    const STATUS = 'STATUS';
+    const ECI = 'ECI';
 
     // Alias
-    const ALIAS                     = "ALIAS";
-    const ALIASOPERATION            = "ALIASOPERATION";
-    const ALIASPERSISTEDAFTERUSE    = "ALIASPERSISTEDAFTERUSE";
-    const ALIASUSAGE                = "ALIASUSAGE";
+    const ALIAS = 'ALIAS';
+    const ALIASOPERATION = 'ALIASOPERATION';
+    const ALIASPERSISTEDAFTERUSE = 'ALIASPERSISTEDAFTERUSE';
+    const ALIASUSAGE = 'ALIASUSAGE';
 
     // Bank / Card
-    const BIC                       = "BIC";
-    const CARD_BIN                  = "BIN";
-    const CARD_BRAND                = "BRAND";
-    const CARD_BRAND_SUB            = "BRANDSUB";
-    const CARD_COUNTRY              = "CCCTY";
-    const CARD_HOLDER               = "CN";
-    const CARD_NUMBER               = "CARDNO";
-    const CARD_VIRTUAL              = "VC";
-    const CVC_CHECK                 = "CVCCHECK";
-    const DIGEST_CARD_NUMBER        = "DIGESTCARDNO";
-    const EXPIRATION_DATE           = "ED";
+    const BIC = 'BIC';
+    const CARD_BIN = 'BIN';
+    const CARD_BRAND = 'BRAND';
+    const CARD_BRAND_SUB = 'BRANDSUB';
+    const CARD_COUNTRY = 'CCCTY';
+    const CARD_HOLDER = 'CN';
+    const CARD_NUMBER = 'CARDNO';
+    const CARD_VIRTUAL = 'VC';
+    const CVC_CHECK = 'CVCCHECK';
+    const DIGEST_CARD_NUMBER = 'DIGESTCARDNO';
+    const EXPIRATION_DATE = 'ED';
 
     // eDCC
-    const DCC_COMMPERCENTAGE        = "DCC_COMMPERCENTAGE";
-    const DCC_CONVAMOUNT            = "DCC_CONVAMOUNT";
-    const DCC_CONVCCY               = "DCC_CONVCCY";
-    const DCC_EXCHRATE              = "DCC_EXCHRATE";
-    const DCC_EXCHRATESOURCE        = "DCC_EXCHRATESOURCE";
-    const DCC_EXCHRATETS            = "DCC_EXCHRATETS";
-    const DCC_INDICATOR             = "DCC_INDICATOR";
-    const DCC_MARGINPERCENTAGE      = "DCC_MARGINPERCENTAGE";
-    const DCC_VALIDHOURS            = "DCC_VALIDHOURS";
-    const HTML_ANSWER               = "HTML_ANSWER";
+    const DCC_COMMPERCENTAGE = 'DCC_COMMPERCENTAGE';
+    const DCC_CONVAMOUNT = 'DCC_CONVAMOUNT';
+    const DCC_CONVCCY = 'DCC_CONVCCY';
+    const DCC_EXCHRATE = 'DCC_EXCHRATE';
+    const DCC_EXCHRATESOURCE = 'DCC_EXCHRATESOURCE';
+    const DCC_EXCHRATETS = 'DCC_EXCHRATETS';
+    const DCC_INDICATOR = 'DCC_INDICATOR';
+    const DCC_MARGINPERCENTAGE = 'DCC_MARGINPERCENTAGE';
+    const DCC_VALIDHOURS = 'DCC_VALIDHOURS';
+    const HTML_ANSWER = 'HTML_ANSWER';
 
     // Direct Debit NL
-    const SEQUENCE_TYPE             = "SEQUENCETYPE";
+    const SEQUENCE_TYPE = 'SEQUENCETYPE';
 
     // Payment
-    const PAYMENT_ID                = "PAYID";
-    const PAYMENT_ID_SUB            = "PAYIDSUB";
-    const PAYMENT_METHOD            = "PM";
-    const SCORING                   = "SCORING";
-    const SCORING_CATEGORY          = "SCO_CATERY";
-    const TRANSACTION_DATE          = "TRXDATE";
+    const PAYMENT_ID = 'PAYID';
+    const PAYMENT_ID_SUB = 'PAYIDSUB';
+    const PAYMENT_METHOD = 'PM';
+    const SCORING = 'SCORING';
+    const SCORING_CATEGORY = 'SCO_CATERY';
+    const TRANSACTION_DATE = 'TRXDATE';
 
     // Subscription
-    const SUBSCRIPTION_ID           = "SUBSCRIPTION_ID";
+    const SUBSCRIPTION_ID = 'SUBSCRIPTION_ID';
 
     /**
      * @var array Post-Sale parameters used to create Signature
@@ -188,6 +189,6 @@ final class Parameter
         self::TRANSACTION_DATE,
         self::CARD_HOLDER,
         self::SIGNATURE,
-        self::IP
+        self::IP,
     );
 }

@@ -1,12 +1,12 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "a086d8e75bbc17f276da205a1cd60325",
-    "packages": [
-
-    ],
+    "hash": "0b9baaf7871e0f810306c70a5f5c905e",
+    "content-hash": "b990ccd05eaf9855a3411e61b0dab779",
+    "packages": [],
     "packages-dev": [
         {
             "name": "fzaninotto/faker",
@@ -14,31 +14,31 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "3a03f26ea3f8f86ebf90edb1df5c4c73ec4d68c2"
+                "reference": "9198c2f7668b9ee494959f8ff7f5f6e6f65379ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/3a03f26ea3f8f86ebf90edb1df5c4c73ec4d68c2",
-                "reference": "3a03f26ea3f8f86ebf90edb1df5c4c73ec4d68c2",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/9198c2f7668b9ee494959f8ff7f5f6e6f65379ca",
+                "reference": "9198c2f7668b9ee494959f8ff7f5f6e6f65379ca",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
+                "ext-intl": "*",
                 "phpunit/phpunit": "~4.0",
                 "squizlabs/php_codesniffer": "~1.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Faker": "src/",
-                    "Faker\\PHPUnit": "test/"
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -56,20 +56,16 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2014-04-21 20:53:35"
+            "time": "2015-10-12 15:48:46"
         }
     ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [
-
-    ],
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.3"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }

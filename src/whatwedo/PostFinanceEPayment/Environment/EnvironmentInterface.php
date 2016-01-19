@@ -11,7 +11,6 @@
 
 namespace whatwedo\PostFinanceEPayment\Environment;
 
-
 /**
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
@@ -26,4 +25,4 @@ interface EnvironmentInterface
      * @return string
      */
     public static function getDirectLinkMaintenanceUrl();
-} 
+}

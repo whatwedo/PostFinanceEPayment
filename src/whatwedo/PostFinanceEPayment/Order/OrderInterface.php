@@ -12,7 +12,8 @@
 namespace whatwedo\PostFinanceEPayment\Order;
 
 /**
- * contains all information of an order
+ * contains all information of an order.
+ *
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
 interface OrderInterface
@@ -28,10 +29,9 @@ interface OrderInterface
     public function getAmount();
 
     /**
-     * @return integer amount multiplied by 100 (to avoid problems with decimal point)
+     * @return int amount multiplied by 100 (to avoid problems with decimal point)
      */
     public function getIntegerAmount();
-
 
     /**
      * @return string

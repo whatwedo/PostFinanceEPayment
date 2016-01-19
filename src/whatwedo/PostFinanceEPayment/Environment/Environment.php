@@ -14,17 +14,18 @@ namespace whatwedo\PostFinanceEPayment\Environment;
 use whatwedo\PostFinanceEPayment\Exception\InvalidArgumentException;
 
 /**
- * system-specific things for the PostFinance API
+ * system-specific things for the PostFinance API.
+ *
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
 abstract class Environment implements EnvironmentInterface
 {
-    const HASH_SHA1 = "sha1";
-    const HASH_SHA256 = "sha256";
-    const HASH_SHA512 = "sha512";
+    const HASH_SHA1 = 'sha1';
+    const HASH_SHA256 = 'sha256';
+    const HASH_SHA512 = 'sha512';
 
-    const CHARSET_ISO_8859_1 = "iso_8859-1";
-    const CHARSET_UTF_8 = "utf-8";
+    const CHARSET_ISO_8859_1 = 'iso_8859-1';
+    const CHARSET_UTF_8 = 'utf-8';
 
     /**
      * @var string|null
@@ -134,7 +135,7 @@ abstract class Environment implements EnvironmentInterface
         'XAF',
         'XOF',
         'XPF',
-        'ZAR'
+        'ZAR',
     );
 
     /**
@@ -168,10 +169,10 @@ abstract class Environment implements EnvironmentInterface
     {
         switch (static::$CHARSET) {
             case static::CHARSET_UTF_8:
-                return static::BASE_URL . "/orderstandard_utf8.asp";
+                return static::BASE_URL.'/orderstandard_utf8.asp';
 
             default:
-                return static::BASE_URL . "/orderstandard.asp";
+                return static::BASE_URL.'/orderstandard.asp';
         }
     }
 
@@ -180,11 +181,12 @@ abstract class Environment implements EnvironmentInterface
      */
     public static function getDirectLinkMaintenanceUrl()
     {
-        return static::BASE_URL . "/maintenancedirect.asp";
+        return static::BASE_URL.'/maintenancedirect.asp';
     }
 
     /**
      * @param string $pspid
+     *
      * @return Environment
      */
     public function setPSPID($pspid)
@@ -204,6 +206,7 @@ abstract class Environment implements EnvironmentInterface
 
     /**
      * @param null $shaIn
+     *
      * @return Environment
      */
     public function setShaIn($shaIn)
@@ -223,6 +226,7 @@ abstract class Environment implements EnvironmentInterface
 
     /**
      * @param null $shaOut
+     *
      * @return Environment
      */
     public function setShaOut($shaOut)
@@ -241,7 +245,7 @@ abstract class Environment implements EnvironmentInterface
     }
 
     /**
-     * Set charset
+     * Set charset.
      *
      * @param string $charset
      */
@@ -249,9 +253,9 @@ abstract class Environment implements EnvironmentInterface
     {
         if (!in_array($charset, self::$ALLOWED_CHARSETS)) {
             throw new InvalidArgumentException(sprintf(
-                "Invalid charset specified (%s), allowed: %s",
+                'Invalid charset specified (%s), allowed: %s',
                 $charset,
-                implode(", ", self::ALLOWED_CHARSETS)
+                implode(', ', self::ALLOWED_CHARSETS)
             ));
         }
         self::$CHARSET = $charset;
@@ -260,7 +264,7 @@ abstract class Environment implements EnvironmentInterface
     }
 
     /**
-     * Get charset
+     * Get charset.
      *
      * @return string
      */
@@ -271,6 +275,7 @@ abstract class Environment implements EnvironmentInterface
 
     /**
      * @param null|string $homeUrl
+     *
      * @return Environment
      */
     public function setHomeUrl($homeUrl)
@@ -290,6 +295,7 @@ abstract class Environment implements EnvironmentInterface
 
     /**
      * @param null|string $acceptUrl
+     *
      * @return Environment
      */
     public function setAcceptUrl($acceptUrl)
@@ -309,6 +315,7 @@ abstract class Environment implements EnvironmentInterface
 
     /**
      * @param null|string $cancelUrl
+     *
      * @return Environment
      */
     public function setCancelUrl($cancelUrl)
@@ -328,6 +335,7 @@ abstract class Environment implements EnvironmentInterface
 
     /**
      * @param null|string $catalogUrl
+     *
      * @return Environment
      */
     public function setCatalogUrl($catalogUrl)
@@ -347,6 +355,7 @@ abstract class Environment implements EnvironmentInterface
 
     /**
      * @param null|string $declineUrl
+     *
      * @return Environment
      */
     public function setDeclineUrl($declineUrl)
@@ -366,6 +375,7 @@ abstract class Environment implements EnvironmentInterface
 
     /**
      * @param null|string $exceptionUrl
+     *
      * @return Environment
      */
     public function setExceptionUrl($exceptionUrl)
@@ -385,6 +395,7 @@ abstract class Environment implements EnvironmentInterface
 
     /**
      * @param null|string $templateUrl
+     *
      * @return Environment
      */
     public function setTemplateUrl($templateUrl)
@@ -404,16 +415,18 @@ abstract class Environment implements EnvironmentInterface
 
     /**
      * @param $hash
+     *
      * @return $this
+     *
      * @throws InvalidArgumentException
      */
     public function setHashAlgorithm($hash)
     {
         if (!in_array($hash, self::$ALLOWED_HASHES)) {
             throw new InvalidArgumentException(sprintf(
-                "Invalid hash method specified (%s), allowed: %s",
+                'Invalid hash method specified (%s), allowed: %s',
                 $hash,
-                implode(", ", self::$ALLOWED_HASHES)
+                implode(', ', self::$ALLOWED_HASHES)
             ));
         }
 
