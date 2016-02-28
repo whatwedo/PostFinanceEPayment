@@ -25,7 +25,6 @@ use whatwedo\PostFinanceEPayment\Payment\Payment;
 use whatwedo\PostFinanceEPayment\PostFinanceEPayment;
 use whatwedo\PostFinanceEPayment\Response\Response;
 
-
 /**
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
@@ -44,9 +43,9 @@ class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->environment = new TestEnvironment(
-            "phpunitTEST",
-            "ABCD*_/1234",
-            "ABCD*_/1234"
+            'phpunitTEST',
+            'ABCD*_/1234',
+            'ABCD*_/1234'
         );
 
         $this->faker = Factory::create();
@@ -82,7 +81,7 @@ class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
 
     public function testSignature()
     {
-        foreach(Environment::$ALLOWED_HASHES as $hash) {
+        foreach (Environment::$ALLOWED_HASHES as $hash) {
             $this->environment->setHashAlgorithm($hash);
 
             $payment = $this->getRandomPayment();
@@ -102,7 +101,7 @@ class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
 
     public function testResponse()
     {
-        foreach(array(PaymentStatus::SUCCESS, PaymentStatus::DECLINED, PaymentStatus::INCOMPLETE) as $status) {
+        foreach (array(PaymentStatus::SUCCESS, PaymentStatus::DECLINED, PaymentStatus::INCOMPLETE) as $status) {
             $response = array(
                 'orderID' => $this->faker->randomNumber('####'),
                 'currency' => 'CHF',
@@ -110,12 +109,12 @@ class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
                 'PM' => $this->faker->randomElement(array(
                             PaymentMethod::POSTFINANCE_EFINANCE,
                             PaymentMethod::CREDITCARD,
-                            PaymentMethod::POSTFINANCE_CARD
+                            PaymentMethod::POSTFINANCE_CARD,
                         )),
                 'ACCEPTANCE' => 'test123',
                 'STATUS' => $status,
-                'CARDNO' => 'XXXXXXXXXXXX'. $this->faker->randomNumber('####'),
-                'ED' => $this->faker->numberBetween(10,12) . $this->faker->numberBetween(10,99),
+                'CARDNO' => 'XXXXXXXXXXXX'.$this->faker->randomNumber('####'),
+                'ED' => $this->faker->numberBetween(10, 12).$this->faker->numberBetween(10, 99),
                 'CN' => $this->faker->name,
                 'TRXDATE' => $this->faker->date('m/d/Y'),
                 'PAYID' => $this->faker->randomNumber('########'),
@@ -136,7 +135,7 @@ class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
                     ));
             } elseif ($response['PM'] === PaymentMethod::POSTFINANCE_CARD) {
                 $response['BRAND'] = PaymentMethod::POSTFINANCE_CARD;
-            } elseif($response['PM'] === PaymentMethod::POSTFINANCE_EFINANCE) {
+            } elseif ($response['PM'] === PaymentMethod::POSTFINANCE_EFINANCE) {
                 $response['BRAND'] = PaymentMethod::POSTFINANCE_EFINANCE;
             }
 
@@ -163,16 +162,17 @@ class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
      * @param $parameters
      * @param $secret
      * @param $algorithm
+     *
      * @return string
      */
     protected function createHash($parameters, $secret, $algorithm)
     {
         $parameters = array_change_key_case($parameters, CASE_UPPER);
         ksort($parameters);
-        $string = "";
+        $string = '';
 
-        foreach($parameters as $key => $value) {
-            $string .= sprintf("%s=%s%s", $key, $value, $secret);
+        foreach ($parameters as $key => $value) {
+            $string .= sprintf('%s=%s%s', $key, $value, $secret);
         }
 
         //echo $string;
@@ -201,16 +201,16 @@ class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
         $client = new Client();
         $client->setId($this->faker->numerify('####'))
             ->setName($this->faker->name)
-            ->setAddress(sprintf("%s %s", $this->faker->streetName, $this->faker->numerify('##')))
-            ->setTown(sprintf("%s %s", $this->faker->postcode, $this->faker->city))
-            ->setCountry("CH")
+            ->setAddress(sprintf('%s %s', $this->faker->streetName, $this->faker->numerify('##')))
+            ->setTown(sprintf('%s %s', $this->faker->postcode, $this->faker->city))
+            ->setCountry('CH')
             ->setTel($this->faker->phoneNumber)
             ->setEmail($this->faker->email)
             ->setLocale($this->faker->randomElement(array(
-                        "de_DE",
-                        "de_CH",
-                        "fr_FR",
-                        "it_IT",
+                        'de_DE',
+                        'de_CH',
+                        'fr_FR',
+                        'it_IT',
                     )));
 
         return $client;
@@ -224,8 +224,9 @@ class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
         $order = new Order();
         $order->setId($this->faker->numerify('####'))
             ->setAmount($this->faker->randomFloat(2, 1, 100))
-            ->setCurrency("CHF")
+            ->setCurrency('CHF')
             ->setOrderText($this->faker->sentence(4));
+
         return $order;
     }
 }
