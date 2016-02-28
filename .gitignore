@@ -2,6 +2,3 @@
 vendor/
 phpunit.xml
 docs/api
-
-# IDE's
-.idea
