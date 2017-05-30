@@ -96,6 +96,11 @@ class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
             );
 
             $this->assertEquals($fields[Parameter::SIGNATURE], $hash);
+
+            // if getForm() is triggered twice, the signature should be the same
+            // @see https://github.com/whatwedo/PostFinanceEPayment/pull/6
+            $fields = $payment->getForm()->getHiddenFields();
+            $this->assertEquals($fields[Parameter::SIGNATURE], $hash);
         }
     }
 
