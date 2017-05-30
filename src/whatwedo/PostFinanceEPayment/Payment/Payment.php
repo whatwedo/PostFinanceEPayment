@@ -126,7 +126,9 @@ class Payment
      */
     private function finalizeParameters()
     {
-        $this->addSignature(); // adds the hashed signature
+        if (!$this->parameters->has(Parameter::SIGNATURE)) {
+            $this->addSignature(); // adds the hashed signature
+        }
 
         return $this;
     }
