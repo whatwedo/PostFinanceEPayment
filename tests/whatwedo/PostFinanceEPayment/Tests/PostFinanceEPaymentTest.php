@@ -28,7 +28,7 @@ use whatwedo\PostFinanceEPayment\Response\Response;
 /**
  * @author Ueli Banholzer <ueli@whatwedo.ch>
  */
-class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
+class PostFinanceEPaymentTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var Environment
@@ -96,6 +96,11 @@ class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
             );
 
             $this->assertEquals($fields[Parameter::SIGNATURE], $hash);
+
+            // if getForm() is triggered twice, the signature should be the same
+            // @see https://github.com/whatwedo/PostFinanceEPayment/pull/6
+            $fields = $payment->getForm()->getHiddenFields();
+            $this->assertEquals($fields[Parameter::SIGNATURE], $hash);
         }
     }
 
@@ -103,7 +108,7 @@ class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
     {
         foreach (array(PaymentStatus::SUCCESS, PaymentStatus::DECLINED, PaymentStatus::INCOMPLETE) as $status) {
             $response = array(
-                'orderID' => $this->faker->randomNumber('####'),
+                'orderID' => $this->faker->randomNumber(4),
                 'currency' => 'CHF',
                 'amount' => $this->faker->randomFloat(2, 1, 100),
                 'PM' => $this->faker->randomElement(array(
@@ -113,11 +118,11 @@ class PostFinanceEPaymentTest extends \PHPUnit_Framework_TestCase
                         )),
                 'ACCEPTANCE' => 'test123',
                 'STATUS' => $status,
-                'CARDNO' => 'XXXXXXXXXXXX'.$this->faker->randomNumber('####'),
+                'CARDNO' => 'XXXXXXXXXXXX'.$this->faker->randomNumber(4),
                 'ED' => $this->faker->numberBetween(10, 12).$this->faker->numberBetween(10, 99),
                 'CN' => $this->faker->name,
                 'TRXDATE' => $this->faker->date('m/d/Y'),
-                'PAYID' => $this->faker->randomNumber('########'),
+                'PAYID' => $this->faker->randomNumber(8),
                 'IPCTY' => $this->faker->countryCode,
                 'CCCTY' => $this->faker->countryCode,
                 'ECI' => '5',

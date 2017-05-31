@@ -6,7 +6,7 @@ PHP 5 library for handling PostFinance E-Payments
 
 This library has the following requirements:
 
-- PHP 5.3+
+- PHP 5.6+
 
 ## Installation
 

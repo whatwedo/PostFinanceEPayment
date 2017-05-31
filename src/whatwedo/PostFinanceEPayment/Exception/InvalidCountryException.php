@@ -19,11 +19,11 @@ class InvalidCountryException extends InvalidArgumentException
     /**
      * {@inheritdoc}
      */
-    public function __construct($inputCurrency, $allowedCurrencies = null)
+    public function __construct($inputCountry, $allowedCountries = null)
     {
         parent::__construct(sprintf(
-                'Invalid currency given (%s), must be an ISO-3166 Alpha 2 acronym',
-                $inputCurrency
+                'Invalid country given (%s), must be an ISO-3166 Alpha 2 acronym',
+                $inputCountry
             ));
     }
 }
