@@ -41,6 +41,11 @@ interface ClientInterface
     /**
      * @return string
      */
+    public function getZip();
+
+    /**
+     * @return string
+     */
     public function getTown();
 
     /**
