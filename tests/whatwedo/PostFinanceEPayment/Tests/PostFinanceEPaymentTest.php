@@ -77,6 +77,7 @@ class PostFinanceEPaymentTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($fields[Parameter::CLIENT_TOWN], $client->getTown());
         $this->assertEquals($fields[Parameter::CLIENT_TEL], $client->getTel());
         $this->assertEquals($fields[Parameter::CLIENT_COUNTRY], $client->getCountry());
+        $this->assertEquals($fields[Parameter::CLIENT_EMAIL], $client->getEmail());
     }
 
     public function testSignature()
