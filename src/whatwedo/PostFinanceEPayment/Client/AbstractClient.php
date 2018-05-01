@@ -44,7 +44,12 @@ abstract class AbstractClient implements ClientInterface
     protected $address = null;
 
     /**
-     * @var string zip/city of the client
+     * @var string zip code of the client
+     */
+    protected $zip = null;
+
+    /**
+     * @var string city of the client
      */
     protected $town = null;
 
@@ -147,6 +152,26 @@ abstract class AbstractClient implements ClientInterface
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * @param string $zip
+     *
+     * @return AbstractClient
+     */
+    public function setZip($zip)
+    {
+        $this->zip = $zip;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getZip()
+    {
+        return $this->zip;
     }
 
     /**

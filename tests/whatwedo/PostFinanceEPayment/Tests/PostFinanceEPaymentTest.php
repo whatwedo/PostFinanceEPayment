@@ -74,9 +74,11 @@ class PostFinanceEPaymentTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($fields[Parameter::LANGUAGE], $client->getLocale());
         $this->assertEquals($fields[Parameter::CARD_HOLDER], $client->getName());
         $this->assertEquals($fields[Parameter::CLIENT_ADDRESS], $client->getAddress());
+        $this->assertEquals($fields[Parameter::CLIENT_ZIP], $client->getZip());
         $this->assertEquals($fields[Parameter::CLIENT_TOWN], $client->getTown());
         $this->assertEquals($fields[Parameter::CLIENT_TEL], $client->getTel());
         $this->assertEquals($fields[Parameter::CLIENT_COUNTRY], $client->getCountry());
+        $this->assertEquals($fields[Parameter::CLIENT_EMAIL], $client->getEmail());
     }
 
     public function testSignature()
@@ -207,7 +209,8 @@ class PostFinanceEPaymentTest extends \PHPUnit\Framework\TestCase
         $client->setId($this->faker->numerify('####'))
             ->setName($this->faker->name)
             ->setAddress(sprintf('%s %s', $this->faker->streetName, $this->faker->numerify('##')))
-            ->setTown(sprintf('%s %s', $this->faker->postcode, $this->faker->city))
+            ->setZip($this->faker->postcode)
+            ->setTown($this->faker->city)
             ->setCountry('CH')
             ->setTel($this->faker->phoneNumber)
             ->setEmail($this->faker->email)
