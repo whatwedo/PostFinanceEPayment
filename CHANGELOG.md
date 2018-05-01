@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [v1.1.0] - 2018-05-01
+### Feature
+- added custom zip code parameter with OWNERZIP (by @wanze)
+
 ## [v1.0.0] - 2017-05-31
 ### Fixed
 - if getForm() is called twice the signature has been added twice

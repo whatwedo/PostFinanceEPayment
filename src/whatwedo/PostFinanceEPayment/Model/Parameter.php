@@ -40,6 +40,7 @@ final class Parameter
     const CLIENT_NAME = 'CN';
     const CLIENT_EMAIL = 'EMAIL';
     const CLIENT_ADDRESS = 'OWNERADDRESS';
+    const CLIENT_ZIP = 'OWNERZIP';
     const CLIENT_TOWN = 'OWNERTOWN';
     const CLIENT_COUNTRY = 'OWNERCTY';
     const CLIENT_TEL = 'OWNERTELNO';

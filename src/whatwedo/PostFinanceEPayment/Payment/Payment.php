@@ -82,10 +82,12 @@ class Payment
         $this->parameters->add(Parameter::LANGUAGE,         $this->client->getLocale());
         $this->parameters->add(Parameter::CLIENT_NAME,      $this->client->getName());
         $this->parameters->add(Parameter::CLIENT_ADDRESS,   $this->client->getAddress());
+        $this->parameters->add(Parameter::CLIENT_ZIP,       $this->client->getZip());
         $this->parameters->add(Parameter::CLIENT_TOWN,      $this->client->getTown());
         $this->parameters->add(Parameter::CLIENT_TEL,       $this->client->getTel());
         $this->parameters->add(Parameter::CLIENT_COUNTRY,   $this->client->getCountry());
         $this->parameters->add(Parameter::CLIENT_NAME,      $this->client->getName());
+        $this->parameters->add(Parameter::CLIENT_EMAIL,     $this->client->getEmail());
 
         // URL's
         $this->parameters->add(Parameter::HOME_URL,         $this->environment->getHomeUrl());
