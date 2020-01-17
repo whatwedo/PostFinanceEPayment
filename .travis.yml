@@ -4,12 +4,27 @@ php:
   - 5.6
   - 7.0
   - 7.1
+  - 7.2
+  - 7.3
+  - 7.4
   - nightly
+
+matrix:
+    fast_finish: true
+    include:
+        - php: 5.6
+        - php: 7.0
+        - php: 7.1
+        - php: 7.2
+        - php: 7.3
+        - php: 7.4
+    allow_failures:
+        - php: nightly
 
 before_script:
     - composer self-update
     - composer install --dev
 
-script: 
+script:
     - cp phpunit.xml.dist phpunit.xml
     - vendor/bin/phpunit -c phpunit.xml --coverage-clover clover
