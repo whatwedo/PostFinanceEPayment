@@ -2,6 +2,17 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [v1.1.1] - 2019-01-17
+### Fixed
+- Removed the undefined `$parameters` variable from the code (by @finalgamer)
+
+### Changed
+- updated dependencies
+
+### Added
+- adding support for PHP 7.2, PHP 7.3 and PHP 7.4
+- added a description on how to use `getResponse()` with custom parameters. (by @finalgamer)
+
 ## [v1.1.0] - 2018-05-01
 ### Feature
 - added custom zip code parameter with OWNERZIP (by @wanze)
@@ -26,6 +37,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - parse PostFinance response
 
 [unreleased]: https://github.com/whatwedo/PostFinanceEPayment/compare/master...develop
+[v1.1.1]: https://github.com/whatwedo/PostFinanceEPayment/compare/v1.1.0...v1.1.1
+[v1.1.0]: https://github.com/whatwedo/PostFinanceEPayment/compare/v1.0.0...v1.1.0
 [v1.0.0]: https://github.com/whatwedo/PostFinanceEPayment/compare/v0.1.0-ALPHA2...v1.0.0
 [v0.1.0-ALPHA2]: https://github.com/whatwedo/PostFinanceEPayment/compare/v0.1.0-ALPHA1...v0.1.0-ALPHA2
 [v0.1.0-ALPHA1]: https://github.com/whatwedo/PostFinanceEPayment/tree/v0.1.0-ALPHA1
