@@ -25,9 +25,10 @@ $ePayment = new PostFinanceEPayment($env);
 
 $response = $ePayment->getResponse(); // takes $_GET array to look for PostFinance variables
 // $response = $ePayment->getResponse($_POST); // takes $_POST array to look for PostFinance variables
+// $response = $ePayment->getResponse($parameters); // you may pass your own parameters to this function
 
 try {
-    $response = $ePayment->getResponse($parameters);
+    $response = $ePayment->getResponse();
 }
 catch(NotValidSignatureException $e) {
     die("PostFinance signature does not match, maybe fraud access?");
